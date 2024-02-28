@@ -1,0 +1,1 @@
+Python practice. Just a repo to document my rusty python skills. 
