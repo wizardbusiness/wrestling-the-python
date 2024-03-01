@@ -42,6 +42,29 @@ class LinkedList:
     new_node.next = curr_node.next
     curr_node.next = new_node
 
+  def delete(self, val):
+    curr_node = self.head
+    if curr_node.val == val:
+      curr_node = curr_node.next
+      self.head = curr_node
+      print(f"Node with val {val} deleted from list")
+      return val
+      
+    while curr_node.next:
+      if curr_node.next.val == val and not curr_node.next.next:  
+        curr_node.next = None
+        print(f"Node with val {val} deleted from list")
+        return val
+      elif curr_node.next.val == val and curr_node.next.next:
+        curr_node.next = curr_node.next.next
+        print(f"Node with val {val} deleted from list")
+        return val
+      curr_node = curr_node.next
+    print(f"No node with val {val} found, returning -1")
+    return -1
+    
+  
+
 
 
 
@@ -62,4 +85,6 @@ ll.add(1)
 ll.add(32)
 ll.add(3)
 ll.insert(4, 0)
+ll.print()
+ll.delete(33)
 ll.print()
