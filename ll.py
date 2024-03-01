@@ -28,6 +28,22 @@ class LinkedList:
     else:
       self.tail.next = ListNode(val)
       self.tail = self.tail.next
+  # inserts a node after the target position in the linked list
+  def insert(self, val, target_posit):
+    curr_posit = 0
+    curr_node = self.head
+    #find 
+    while curr_posit < target_posit and curr_node:
+      curr_posit += 1
+      curr_node = curr_node.next
+    
+    # insert
+    new_node = ListNode(val)
+    new_node.next = curr_node.next
+    curr_node.next = new_node
+
+
+
 
   def print(self):
     curr_node = self.head
@@ -38,9 +54,12 @@ class LinkedList:
       else:
         str_repr += str(curr_node.val) + " -> "     
       curr_node = curr_node.next
-    print (str_repr)
+    print(str_repr)
+    return str_repr
 
 ll = LinkedList()
 ll.add(1)
 ll.add(32)
+ll.add(3)
+ll.insert(4, 0)
 ll.print()
