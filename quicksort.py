@@ -17,7 +17,7 @@ def partition(array, start, end):
     if array[i] < pivot:
       array[i], array[partition_index] = array[partition_index], array[i] 
       partition_index += 1
-
+      
   array[partition_index], array[end] = array[end], array[partition_index]
 
   return partition_index
